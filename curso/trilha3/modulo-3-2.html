@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Modulo 3.2: Integracao Cloud API | WhatsApp Username & BSUID</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>body{font-family:'Inter',sans-serif}.dark body{background-color:#111827}html:not(.dark) body{background-color:#f8fafc}html:not(.dark) .bg-dark-900{background-color:#fff}html:not(.dark) .bg-dark-800{background-color:#f9fafb}html:not(.dark) .bg-dark-700{background-color:#f3f4f6}html:not(.dark) .bg-dark-600{background-color:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}html:not(.dark) .text-purple-400{color:#7c3aed}html:not(.dark) .bg-purple-500\/20{background-color:rgba(124,58,237,.12)}html:not(.dark) .bg-purple-500\/10{background-color:rgba(124,58,237,.08)}html:not(.dark) .border-purple-500\/30{border-color:rgba(124,58,237,.25)}html:not(.dark) .bg-purple-900\/20{background-color:rgba(124,58,237,.08)}html:not(.dark) .hover\:bg-purple-500\/10:hover{background-color:rgba(124,58,237,.08)}html:not(.dark) .hover\:text-purple-400:hover{color:#7c3aed}html:not(.dark) .text-emerald-400{color:#059669}html:not(.dark) .bg-emerald-900\/20{background-color:rgba(5,150,105,.08)}html:not(.dark) .border-emerald-500\/30{border-color:rgba(5,150,105,.25)}html:not(.dark) .hover\:text-emerald-400:hover{color:#059669}html:not(.dark) .hover\:bg-emerald-500\/10:hover{background-color:rgba(5,150,105,.08)}html:not(.dark) .text-blue-400{color:#2563eb}html:not(.dark) .bg-blue-900\/20{background-color:rgba(37,99,235,.08)}html:not(.dark) .border-blue-500\/30{border-color:rgba(37,99,235,.25)}html:not(.dark) .hover\:text-blue-400:hover{color:#2563eb}html:not(.dark) .hover\:bg-blue-500\/10:hover{background-color:rgba(37,99,235,.08)}html:not(.dark) .text-red-400{color:#dc2626}html:not(.dark) .bg-red-900\/20{background-color:rgba(220,38,38,.08)}html:not(.dark) .border-red-500\/30{border-color:rgba(220,38,38,.25)}html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background-color:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background-color:rgba(255,255,255,.95)}.dark .border-dark-600{border-color:#374151}.dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]){border-color:#374151}</style></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">💬</span><span class="font-bold text-lg hidden sm:inline">WhatsApp Username & BSUID</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Pessoas</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Empresas</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0z"></path></svg></button></div></div></div></nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-purple-400">Inicio</a><span>/</span><a href="index.html" class="hover:text-purple-400">Trilha 3</a><span>/</span><span class="text-purple-400">Modulo 3.2</span></div></nav>
+
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MODULO 3.2</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🔌 Integracao Cloud API</h1><p class="text-lg text-neutral-400 max-w-3xl">Webhooks, envios, templates, idempotencia e observabilidade — o que muda no codigo com BSUID.</p></div></header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<section id="topico-1" class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📥 Webhook recebido</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Webhook entrega <strong class="text-purple-400">messages[]</strong> e <strong class="text-purple-400">contacts[]</strong>. Pegue BSUID no contacts.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 font-mono text-xs overflow-x-auto"><pre class="text-neutral-300">POST /webhooks/whatsapp HTTP/1.1
+Content-Type: application/json
+X-Hub-Signature-256: sha256=...
+
+{
+  "entry": [{
+    "id": "&lt;WABA_ID&gt;",
+    "changes": [{
+      "value": {
+        "messaging_product": "whatsapp",
+        "metadata": {
+          "display_phone_number": "5511...",
+          "phone_number_id": "&lt;PHONE_NUMBER_ID&gt;"
+        },
+        "contacts": [{
+          <span class="text-emerald-400">"user_id": "&lt;BSUID&gt;",</span>
+          "profile": { "name": "Maria" }
+        }],
+        "messages": [{
+          "from": "5511...",
+          "id": "wamid.HBgL...",
+          "timestamp": "1716...",
+          "type": "text",
+          "text": { "body": "Ola" }
+        }]
+      },
+      "field": "messages"
+    }]
+  }]
+}</pre></div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6"><h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Quando user_id NAO chega</h3><p class="text-neutral-300 text-sm">Versoes antigas da API podem nao expor o campo. Cheque sempre a versao do endpoint configurada. Sem BSUID, mantenha wa_id como fallback ate atualizar.</p></div>
+</section>
+
+<section id="topico-2" class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">📤 Enviar mensagem com BSUID</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Send Message API aceita BSUID como destinatario. Dentro da <strong class="text-purple-400">janela de 24h</strong> sem template.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 font-mono text-xs overflow-x-auto"><pre class="text-neutral-300">POST /v22.0/&lt;PHONE_NUMBER_ID&gt;/messages
+Authorization: Bearer &lt;ACCESS_TOKEN&gt;
+Content-Type: application/json
+
+{
+  "messaging_product": "whatsapp",
+  "recipient_type": "individual",
+  <span class="text-emerald-400">"to": "&lt;BSUID_DO_USUARIO&gt;",</span>
+  "type": "text",
+  "text": { "body": "Olá! Como podemos ajudar?" }
+}</pre></div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6"><h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">⏰</span> Sessao de 24h</h3><p class="text-neutral-300 text-sm">Apos a ultima mensagem do usuario, voce tem 24h para responder com qualquer conteudo. Depois disso, so templates aprovados.</p></div>
+</section>
+
+<section id="topico-3" class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🪪 Templates (HSM)</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Templates de marketing/utility passam a aceitar BSUID. <strong class="text-purple-400">Variaveis funcionam igual</strong>.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 font-mono text-xs overflow-x-auto"><pre class="text-neutral-300">{
+  "messaging_product": "whatsapp",
+  "to": "&lt;BSUID&gt;",
+  "type": "template",
+  "template": {
+    "name": "promo_inverno_2026",
+    "language": { "code": "pt_BR" },
+    "components": [{
+      "type": "body",
+      "parameters": [
+        { "type": "text", "text": "Maria" },
+        { "type": "text", "text": "20%" }
+      ]
+    }]
+  }
+}</pre></div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6"><h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">📜</span> Opt-in continua obrigatorio</h3><p class="text-neutral-300 text-sm">LGPD nao mudou — voce precisa de consentimento valido antes de enviar templates de marketing, com BSUID ou nao.</p></div>
+</section>
+
+<section id="topico-4" class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🔁 Idempotencia</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Webhooks duplicam por retry. Dedupe por <strong class="text-purple-400">(business_id, bsuid, message_id)</strong>.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 font-mono text-xs overflow-x-auto"><pre class="text-neutral-300">-- Insert idempotente
+INSERT INTO mensagens_wa
+  (business_id, bsuid, message_id, direction, body, created_at)
+VALUES
+  ($1, $2, $3, 'in', $4, NOW())
+<span class="text-emerald-400">ON CONFLICT (business_id, message_id) DO NOTHING;</span></pre></div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6"><h3 class="text-lg font-semibold text-emerald-400 mb-3 flex items-center"><span class="mr-2">✓</span> Beneficio</h3><p class="text-neutral-300 text-sm">Retries da Meta nao geram duplicacao no seu banco. Conta de mensagens fica precisa.</p></div>
+</section>
+
+<section id="topico-5" class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🧪 Testes e sandbox</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">A Cloud API entrega <strong class="text-purple-400">numero de teste gratis</strong>. Use ANTES de subir prod.</p>
+<div class="space-y-4 mb-6">
+<div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">1</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold mb-2">Numero de teste no Meta for Developers</h4><p class="text-neutral-300 text-sm">Cada app ganha um numero teste. Voce adiciona ate 5 destinatarios de teste.</p></div></div>
+<div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">2</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold mb-2">Webhook tunnel local (ngrok)</h4><p class="text-neutral-300 text-sm">Tunelize seu localhost para receber webhooks reais durante desenvolvimento.</p></div></div>
+<div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">3</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold mb-2">Fixtures de BSUID para testes unitarios</h4><p class="text-neutral-300 text-sm">Crie payloads fake de webhook com BSUID consistente — rode em CI sem precisar de WhatsApp real.</p></div></div></div>
+</section>
+
+<section id="topico-6" class="mb-16"><div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">📈 Observabilidade</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Logs com <strong class="text-purple-400">{business_id, bsuid, message_id, status}</strong> permitem debug sem expor PII.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 font-mono text-xs overflow-x-auto"><pre class="text-neutral-300">{
+  "ts": "2026-05-21T18:30:00Z",
+  "level": "info",
+  "event": "wa.message.received",
+  "business_id": "b_8f3a2c",
+  <span class="text-emerald-400">"bsuid": "7a3f2b9c1e..."</span>,
+  "message_id": "wamid.HBgL...",
+  "direction": "in",
+  "type": "text"
+}</pre></div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6"><h3 class="text-lg font-semibold text-emerald-400 mb-3 flex items-center"><span class="mr-2">✓</span> Vantagens</h3><ul class="space-y-2 text-neutral-300 text-sm"><li>BSUID e pseudonimizado — menor risco em SIEM</li><li>Permite filtrar por cliente sem PII</li><li>Diferencia clientes da mesma empresa sem precisar de telefone</li></ul></div>
+</section>
+
+<section class="mb-12"><div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8"><h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">🎓</span> Resumo</h2><div class="space-y-4 mb-8"><div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong>Webhook:</strong><span class="text-neutral-400"> capture BSUID em contacts[].user_id.</span></div></div><div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong>Envio:</strong><span class="text-neutral-400"> use BSUID como `to`, sessao de 24h ou templates aprovados.</span></div></div><div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong>Idempotencia:</strong><span class="text-neutral-400"> (business_id, message_id) UNIQUE.</span></div></div><div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong>Observabilidade:</strong><span class="text-neutral-400"> logue BSUID, evite telefone em logs.</span></div></div></div><div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-purple-400 mb-2">Proximo Modulo:</h3><p class="text-neutral-300">3.3 — CRM e conformidade</p></div><div class="flex flex-col sm:flex-row gap-4"><a href="modulo-3-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Modulo Anterior</a><a href="modulo-3-3.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Proximo Modulo →</a></div></div></section>
+
+</main>
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>WhatsApp Username & BSUID — INEMA.CLUB · 2026</p></div></footer>
+<script>const t=document.getElementById('theme-toggle'),d=document.getElementById('theme-toggle-dark-icon'),l=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;if(localStorage.getItem('theme')==='light'){h.classList.remove('dark');d.classList.remove('hidden')}else{l.classList.remove('hidden')}t.addEventListener('click',()=>{d.classList.toggle('hidden');l.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});</script>
+</body></html>
