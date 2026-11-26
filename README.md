@@ -1,4 +1,4 @@
-﻿# WhatsApp Username & BSUID â€” Curso INEMA.CLUB
+﻿# WhatsApp Username & BSUID â€” Curso ARCKHÉ AI
 
 <div align="center">
   <img src="capa/logo.svg" alt="Arckhé AI" height="48" />
@@ -8,7 +8,7 @@
 
 Curso aberto e gratuito sobre **Username pessoal do WhatsApp** e **Business-Scoped User ID (BSUID)**.
 
-ðŸ”— **Acesse:** https://inematds.github.io/whatsapp-bsuid/
+ðŸ”— **Acesse:** https://linnoff88-dev.github.io/arckhe-/
 
 ## Estrutura
 
@@ -26,7 +26,7 @@ Curso aberto e gratuito sobre **Username pessoal do WhatsApp** e **Business-Scop
 
 ## Formato
 
-Paginas estaticas em HTML + Tailwind CDN, no formato de curso do INEMA.CLUB. Dark mode/light mode. Sem build step.
+Paginas estaticas em HTML + Tailwind CDN, no formato de curso do ARCKHÉ AI. Dark mode/light mode. Sem build step.
 
 ## Licenca
 
